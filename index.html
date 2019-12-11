@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Interactive Graphics</title>
+<link rel="stylesheet" href="template.css">
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+<div id="heroimg">
+<img src="musicthree.jpg" alt="record">
+<h1 id="arthed">TOP MUSIC GENRES</h1>
+</div>
+	<h1 style="font-family: 'Anton', sans-serif;"<h1 align="center">The Top Music Genres in America Today</h1>
+	<p id="subhed">Every day new music hits the charts.Everyone has different music tastes, but according to a recent CBS News poll Country and rock are America's favorite music genres. There were other surprising genres that made the list. This graphic shows what other genres were among the favorites of Americans.</p>
+      <div id="chartdiv"></div>
+	<!-- Put the source codes below -->
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+let chart = am4core.create("chartdiv", am4charts.SlicedChart);
+chart.data = [{
+  "name": "Country",
+  "value": 21
+}, {
+  "name": "Rock",
+  "value": 18
+}, {
+  "name": "Classical",
+  "value": 10
+}, {
+  "name": "R&B",
+  "value": 9
+}, {
+  "name": "Rap",
+  "value": 7
+}, {
+  "name": "Jazz",
+  "value": 7
+}, {
+  "name": "Gospel",
+  "value": 5
+}];
+
+var series = chart.series.push(new am4charts.PictorialStackedSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "name";
+series.alignLabels = true;
+series.orientation = "vertical";
+series.maskSprite.path ="M52.66,0.249c-0.216-0.189-0.501-0.275-0.789-0.241l-31,4.011C20.373,4.084,20,4.507,20,5.01v6.017v4.212v25.384 C18.174,38.428,15.273,37,12,37c-5.514,0-10,4.037-10,9s4.486,9,10,9s10-4.037,10-9c0-0.232-0.019-0.46-0.039-0.687 C21.974,45.248,22,45.189,22,45.121V16.118l29-3.753v18.257C49.174,28.428,46.273,27,43,27c-5.514,0-10,4.037-10,9s4.486,9,10,9 c5.464,0,9.913-3.966,9.993-8.867c0-0.013,0.007-0.024,0.007-0.037V11.227V7.016V1C53,0.712,52.876,0.438,52.66,0.249z";
+
+}); // end am4core.ready()
+</script>
+
+<p class="pcut">Top Music Genres in America from cbsnews.com</p>
+
+
+<p style="font-family: 'Roboto', sans-serif;">This poll was conducted by telephone January 10-14, 2018 among a random sample of 1,009 adults nationwide.  Data collection was conducted on behalf of CBS News by SSRS of Glen Mills, Pa.  Phone numbers were dialed from samples of both standard land-line and cell phones.</p>
+
+<p>The poll employed a random digit dial methodology. For the landline sample, a respondent was randomly selected from all adults in the household. For the cell sample, interviews were conducted with the person who answered the phone.</p>
+
+ <p>Interviews were conducted in English and Spanish using live interviewers.  The data have been weighted to reflect U.S. Census figures on demographic variables. The error due to sampling for results based on the entire sample could be plus or minus four percentage points. The error for subgroups may be higher and is available by request. The margin of error includes the effects of standard weighting procedures which enlarge sampling error slightly. This poll release conforms to the Standards of Disclosure of the National Council on Public Polls.</p>
+
+<p id="caption" align="center"><i>America's Favorite Music Genres. Source: cbsnews.com.</p>
+
+  </body>
+</html>
